@@ -100,10 +100,11 @@ const destroyClient = async () => {
 // Inicializa o cliente do WhatsApp
 const initializeWhatsAppClient = async () => {
   await destroyClient(); // Garante que o cliente anterior seja destruído de forma segura
-  await cleanSessionFolder(); // Limpa a pasta de sessão antes de inicializar um novo cliente
+  // await cleanSessionFolder(); // Limpa a pasta de sessão antes de inicializar um novo cliente
 
   client = new Client({
-    authStrategy: new LocalAuth(), // Reintroduzindo LocalAuth
+    // authStrategy: new LocalAuth(), // Reintroduzindo LocalAuth
+    authStrategy: new LocalAuth({ dataPath: process.env.WWEBJS_DATA_PATH || './.wwebjs_auth' }), // Alterado
     puppeteer: {
       headless: true,
       args: [
