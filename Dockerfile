@@ -3,7 +3,8 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Instalar dependências do Puppeteer
-RUN apk add --no-cache chromium nss freetype freetype-dev harfbuzz ca-certificates
+RUN apk add --no-cache chromium nss freetype freetype-dev harfbuzz ca-certificates \
+    ttf-freefont fontconfig udev
 
 COPY package*.json ./
 
@@ -14,5 +15,3 @@ COPY . .
 EXPOSE ${PORT:-5000}
 
 CMD ["node", "index.js"]
-
-
