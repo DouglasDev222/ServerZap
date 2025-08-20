@@ -2,7 +2,7 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Instalar dependências do Puppeteer
+# Instalar dependências do Puppeteerr
 RUN apk add --no-cache chromium nss freetype freetype-dev harfbuzz ca-certificates \
     ttf-freefont fontconfig udev
 
